@@ -1,0 +1,312 @@
+<!-- 
+<div class="row">
+<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+
+</div>
+</div>
+-->
+
+<!-- Modal Ver Tabla de las farmacias elegidas-->
+<div class="modal fade bd-example-modal-xl" id="modaltablafarmacia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Información del Farmacos</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <table id="table" class="display">
+<thead>
+
+<tr>
+<th>Imagen</th>    
+<th>Nombre Farmaco</th>
+<th>Laboratorio</th>
+<th>Precio</th>
+<th>Nombre Farmacia</th>
+<th>Modo Aplicación</th>
+
+<th>Acción</th> 
+
+</tr>
+
+
+</thead>
+
+<tbody>
+
+
+
+
+</tbody>
+
+
+</table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cerrar</button>  
+    </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade " id="modalinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Información del Farmacos</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form name="compra" id="compra" method="POST" enctype="multipart/form-data" class="row g-3">
+ 
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Farmacia vende</label>
+    <input type="text" class="form-control" disabled name="farver" id="farver">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre Farmaco</label>
+    <input type="text" class="form-control" name="nombrecomerver" id="nombrecomerver">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Imagen del farmaco</label>
+    <img name="imgfarmacover" class="img-fluid rounded mx-auto d-block" height="200 px" id="imgfarmacover" src="" alt="">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Imagen de la farmacia</label>
+    <img name="imgfarmaciaver" class="img-fluid rounded mx-auto d-block" height="200 px" id="imgfarmaciaver" src="" alt="">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Fecha de vencimiento</label>
+    <input type="date" class="form-control" disabled name="vencimientover" id="vencimientover">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Laboratorio</label>
+    <input type="text" class="form-control" disabled name="laboratoriover" id="laboratoriover">
+  </div>
+ 
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Precio</label>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-solid fa-dollar-sign"></i></span>
+          <input type="text" disabled name="preciover" id="preciover" class="form-control" >
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Estado</label>
+      <input type="text" disabled name="estadover" id="estadover" class="form-control" >
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Tipo de venta</label>
+      <input type="text" disabled name="tipover" id="tipover" class="form-control">
+    </div>
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Ofrece Delivery</label>
+    <input disabled type="text" class="form-control" name="deliveryver" id="deliveryver">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Tipo de aplicación</label>
+    <input disabled type="text" class="form-control" name="apliver" id="apliver">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">N° de Telefono</label>
+    <input disabled type="text" class="form-control" name="numerover" id="numerover">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de abierto</label>
+    <input disabled type="time" class="form-control" id="abiertover">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de cierre</label>
+    <input type="time" disabled class="form-control" id="cierrever">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Precauciones</label>
+    <textarea disabled class="form-control" name="precaucionesver" id="precaucionesver" rows="2"></textarea>
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Reacciones adversas</label>
+    <textarea disabled class="form-control" name="reaccionesver" id="reaccionesver" rows="2"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Interacciones</label>
+    <textarea disabled class="form-control" name="interaccionesver" id="interaccionesver" rows="2"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Dirección de la farmacia</label>
+    <textarea disabled class="form-control" name="direccionver" id="direccionver" rows="2"></textarea>
+  </div>
+
+ 
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Peso</label>
+    <input type="text" disabled class="form-control" name="pesover" id="pesover">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Volumen</label>
+    <input type="text" disabled class="form-control" name="volumenver" id="volumenver">
+  </div>
+<hr>
+  <p class="divider-text"><span class="bg-light">Generar Solicitud de envio</span></p>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Nombre y Apellido</label>
+    <input class="form-control"  name="nombrecompra" id="nombrecompra" type="text">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Numero de telefono</label>
+    <input class="form-control"  name="numerocompra" id="numerocompra" type="number">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Cantidad</label>
+    <input class="form-control"  name="cantidadcompra" id="cantidadcompra" type="number">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Costo Total</label>
+    <input class="form-control"  name="costo" id="costo" type="text">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Dirección entrega</label>
+    <textarea class="form-control" name="direccioncompra" id="direccioncompra" rows="2"></textarea>
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Agregar Receta</label>
+    <input class="form-control"  name="receta" id="receta" type="file">
+  </div>
+
+  <div id="divfarmaco" class="col-md-6">
+    <label for="inputPassword4" class="form-label">Id Farmaco</label>
+    <input type="text"  class="form-control" name="idfarmaco" id="idfarmaco">
+  </div>
+
+
+
+  <a href="" id="enlace" target="_blank">Enlace en Nueva Pestaña</a>
+
+
+  
+
+
+
+   
+  
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>  
+        <button type="submit" class="btn btn-success">
+        <span class="fa fa-whatsapp"></span> Solicitar Farmaco</button> 
+    </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+
+<div id="map" style="width: 100%; height: 500px;"></div>
+
+</div>
+
+
+
+<script>
+
+var direccion =[13.484738862743582, -86.58146656360756];
+    var map = L.map('map').setView(direccion, 15);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">FarmApp</a>'
+    }).addTo(map);
+
+    
+var ubicaciones=JSON.parse('<?= $this->datos ?>');
+console.log(ubicaciones);
+
+
+
+for (i=0;i<ubicaciones.length;i++){
+    var icono=L.icon({iconUrl:'http://localhost/FarmApp/Views/plantilla/assets/img/ubic-icon.png'});
+    marcador=L.marker([ubicaciones[i]['latitud'],ubicaciones[i]['longitud']],{icon: icono}).addTo(map);
+    marcador.bindPopup('<div id="card" class="card shadow mb-4"><div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Farmacia '+[ubicaciones[i]['nombre']]+'</h6></div><div class="card-body">Dirección: '+[ubicaciones[i]['direccion']]+'<br> <hr> Latitud: '+[ubicaciones[i]['latitud']]+' <br> <hr> Longitud: '+[ubicaciones[i]['longitud']]+'  <br><hr>Hora Abre: '+[ubicaciones[i]['hora_abre']]+' <br> <hr> Hora cierra: '+[ubicaciones[i]['hora_cierre']]+'  <br><hr> <img class="rounded mx-auto d-block" style="height:80px"; src="<?=PLANTILLA?>assets/img/'+[ubicaciones[i]['imagen_farm']]+'"> <br>  </div></div>');
+   /* marcador.bindPopup([ubicaciones[i]['nombre']]+'. <br> Ubicada en: '+[ubicaciones[i]['direccion']]);*/
+    //.bindPopup('Farmacia. +"ubicaciones[i]['nombre']+" A pretty CSS popup.<br> Easily customizable.');
+    
+  /* console.log(ubicaciones[i]['longitud']);
+    console.log(ubicaciones[i]['nombre']);
+    console.log(ubicaciones[i]['latitud']);
+    lat=ubicaciones[i]['longitud'];
+    long=ubicaciones[i]['latitud'];
+    console.log(lat);
+    console.log(long);*/  
+
+   // L.marker(ubicaciones[i]['latitud'],ubicaciones[i]['longitud']).addTo(map);
+    //L.marker([long,lat]).addTo(map);
+}
+
+
+navigator.geolocation.getCurrentPosition(position => {
+    console.log(position);
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+console.log(lat);
+console.log(lon);
+
+var icono=L.icon({iconUrl:'http://localhost/FarmApp/Views/plantilla/assets/img/ubicperona2.png'});
+    marcador=L.marker([lat, lon],{icon: icono}).addTo(map);
+    marcador.bindPopup("Ubicación actual");
+});
+
+
+
+
+
+
+    //var icono=L.icon({iconUrl:'http://localhost/FarmApp/Views/plantilla/assets/img/ubic-icon.png'});
+   // L.marker(direccion,{icon: icono}).addTo(map);
+
+
+</script>

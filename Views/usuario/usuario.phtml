@@ -1,0 +1,119 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                     <div class="card-header">
+                                        <center>
+                                        <strong>Registro y listado de Usuarios</strong>
+                                    </center>
+
+                                    <button class="btn btn-info float-right" data-bs-toggle="modal" data-bs-target="#modalusuario">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+
+                                    </div>
+<div class="card-body card-block">
+
+
+<table id="table" class="display">
+    <thead>
+        <th>Nombre usuario</th>
+        <th>Contraseña</th>
+        <th>privilegio</th>
+        <th>id</th>
+        <th>Acción</th>
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                       
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+<!--Modal para agregar usuarios-->
+
+<div class="modal fade" id="modalusuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Agregar usuario</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formagregarusuario" method="POST" class="row g-3">
+      
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre Usuario</label>
+    <input type="text" placeholder="Nombre de usuario" class="form-control" name="nombreusuario" id="nombreusuario">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Clave</label>
+    <input type="password" placeholder="Digite clave"class="form-control" name="claveu" id="claveu">
+  </div>
+
+  <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Privilegio</label>
+      <select class="custom-select mr-sm-2" name="privilegio" id="privilegio">
+        <option value="" selected>Seleccione privilegio</option>
+        <option value="administrador">Administrador</option>
+        <option value="regente">Regente</option>
+        <option value="dispensario">Dispensario</option>
+        <option value="cliente">cliente</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-info">
+        <span class="fa fa-plus"></span> Agregar</button>
+        </div>
+        </form>
+      </div>
+  </div>
+
+
+</div>
+
+
+
+
+

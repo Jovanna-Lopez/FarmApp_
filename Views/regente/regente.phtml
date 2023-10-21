@@ -1,0 +1,243 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Registro y Listado de Regentes</strong>
+                                    </center>
+
+                                    <button class="btn btn-info float-right" data-bs-toggle="modal" data-bs-target="#modalregente">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+
+                                    </div>
+<div class="card-body card-block">
+
+
+<table id="table"class="display nowrap" style="width:100%">
+<thead>
+
+<tr>
+<th>Id</th>
+<th>Nombres</th>
+<th>Apellidos</th>
+<th>Sexo</th>
+<th>Telefono</th>
+<th>Correo</th>
+<th>Nombre Usuario</th>
+<th>Clave</th>
+<th>Acción</th>
+
+</tr>
+
+
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
+
+
+</tbody>
+
+
+</table>
+
+
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                       
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para la insertar farmacos -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalregente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Agregar Regentes</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formagregarregentes" method="POST" class="row g-3">
+
+
+
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Nombres Regente</label>
+    <input type="text" placeholder="Digite Nombres" class="form-control" id="nombres">
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Apellidos Regente</label>
+    <input type="text" placeholder="Digite Apellidos" class="form-control" id="apellidos">
+  </div>
+   <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Sexo</label>
+      <select class="custom-select mr-sm-2" id="sexo">
+        <option value="" selected>Seleccione Sexo</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+      </select>
+    </div>
+ 
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Telefono</label>
+    <input type="number" placeholder="Num Telefono"class="form-control" id="telefono">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Correo</label>
+    <input type="email" placeholder="Correo Electronico"class="form-control" id="correo">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Nombre Usuario</label>
+    <input type="text" placeholder="Digite nombre de usuario" class="form-control" id="nombreu">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Clave</label>
+    <input type="password" placeholder="Digite clave"class="form-control" id="clave">
+  </div>
+
+ 
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-info">
+        <span class="fa fa-plus"></span> Agregar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para la insertar farmacos -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modaleditarregente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Editar información del Regente</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formeditarregentes" method="POST" class="row g-3">
+
+<div class="col-md-12">
+    <label for="inputEmail4" class="form-label">ID Regente</label>
+    <input type="text" placeholder="Digite Nombres" class="form-control" disabled="yes" id="idr">
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Nombres Regente</label>
+    <input type="text" placeholder="Digite Nombres" class="form-control" id="nombresu">
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Apellidos Regente</label>
+    <input type="text" placeholder="Digite Apellidos" class="form-control" id="apellidosu">
+  </div>
+   <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Sexo</label>
+      <select class="custom-select mr-sm-2" id="sexou">
+        <option value="" selected>Seleccione Sexo</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+      </select>
+    </div>
+ 
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Telefono</label>
+    <input type="number" placeholder="Num Telefono"class="form-control" id="telefonou">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Correo</label>
+    <input type="email" placeholder="Correo Electronico"class="form-control" id="correou">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Nombre Usuario</label>
+    <input type="text" placeholder="Digite nombre de usuario" class="form-control" id="nombreup">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Clave</label>
+    <input type="password" placeholder="Digite clave"class="form-control" id="claveu">
+  </div>
+
+ 
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-warning">
+        <span class="fa fa-refresh"></span> Actualizar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

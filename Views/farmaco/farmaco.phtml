@@ -1,0 +1,478 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Registro y listado de farmacos</strong>
+                                    </center>
+
+                                    <button class="btn btn-info float-right" data-bs-toggle="modal" data-bs-target="#modalfarmco">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+
+                                    </div>
+<div class="card-body card-block">
+
+
+<table id="table" class="display">
+<thead>
+
+<tr>
+<th>Imagen</th>
+<th>Nombre medico</th>
+<th>nombre comercial</th>
+<th>laboratorio</th>
+<th>estado</th> 
+<th>peso</th>
+<th>volumen</th>
+<th>fecha de vencimiento</th>
+<th>tipo</th>
+<th>cantidad</th>
+<th>precio</th>
+<th>Aplicación</th>
+<th>Precauciones</th>
+<th>Reacciones</th>
+<th>Interacciones</th>
+<th>Id</th>
+<th>Id farmacia</th>
+<th>Acción</th>
+
+</tr>
+
+
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
+
+
+</tbody>
+
+
+</table>
+
+
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                       
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para la insertar farmacos -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalfarmco" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Agregar Farmacos</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form id="formagregarfarmaco" method="POST" enctype="multipart/form-data" class="row g-3">
+      <div class="col-md-12">
+      <label for="inputEmail4" class="form-label">Farmacia</label>
+      <select class="form-control" name="farmacia" id="farmacia">
+      <?= $this->farmacias ?>  
+      </select>
+  </div>
+
+
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre Medico</label>
+    <input type="text" placeholder="Nombre Cientifico" class="form-control" name="nombremedico" id="nombremedico">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre Comercial</label>
+    <input type="text" placeholder="Nombre Comercial" class="form-control" name="nombrecomercial" id="nombrecomercial">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Laboratorio</label>
+    <input type="text" placeholder="Laboratorio de procedencia"class="form-control" name="laboratorio" id="laboratorio">
+  </div>
+ 
+
+    <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Estado</label>
+      <select class="custom-select mr-sm-2" name="estado" id="estado">
+        <option value="" selected>Seleccione Estado</option>
+        <optgroup label="Sólido">
+                <option value="capsula">cápsula</option>
+                <option value="sello">sello</option>
+                <option value="tableta">tableta</option>
+                <option value="pildora">píldora</option>
+                <option value="extracto">extracto</option>
+                <option value="supositorio"> supositorio</option>
+            </optgroup>
+            <optgroup label="semisólido">
+                <option value="pasta">pasta</option>
+                <option value="crema">crema</option>
+                <option value="jalea">jalea</option>
+                <option value="emplasto">emplasto</option>
+            </optgroup>
+
+            <optgroup label="liquido">
+                <option value="solucion">solucion</option>
+                <option value="inyeccion">inyeccion</option>
+                <option value="jarabe">jarabe</option>
+                <option value=" colirio"> colirio</option>
+            </optgroup>
+
+            <optgroup label="gaseso">
+                <option value="oxigeno">oxígeno</option>
+                <option value="oxido nitroso">óxido nitroso</option>
+                <option value="aerosol">aerosol</option>
+            </optgroup>
+
+
+      </select>
+    </div>
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Peso</label>
+    <input type="text" placeholder="Solo si es solido"class="form-control" name="peso" id="peso">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Volumen</label>
+    <input type="text" placeholder="si es liquido o gaseoso"class="form-control" name="volumen" id="volumen">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Fecha de vencimiento</label>
+    <input type="date" placeholder="Fecha de caducidad"class="form-control" name="vencimiento" id="vencimiento">
+  </div>
+
+  <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Tipo</label>
+      <select class="custom-select mr-sm-2" name="tipo" id="tipo">
+        <option value="" selected>Seleccione Opcion</option>
+        <option value="Controlado">Controlado</option>
+        <option value="Libre">Libre</option>
+      </select>
+    </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Cantidad</label>
+    <input type="number" placeholder="N° farmacos"class="form-control" name="cantidad" id="cantidad">
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Precio</label>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-solid fa-dollar-sign"></i></span>
+          <input type="number" name="precio" id="precio" class="form-control" placeholder="precio venta" >
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-12">
+      <label class="form-label" for="inlineFormCustomSelect">Modo Aplicación</label>
+      <select class="custom-select mr-sm-2" name="aplica" id="aplica">
+        <option value="" selected>Seleccione Opcion</option>
+        <option value="vía Oral">vía Oral</option>
+        <option value="vía intravenosa">vía intravenosa</option>
+        <option value="vía intramuscular">vía intramuscular</option>
+        <option value="vía rectal">vía rectal</option>
+        <option value="vía vaginal">vía vaginal</option>
+        <option value="vía ocular">vía ocular</option>
+        <option value="vía ótica">vía ótica</option>
+        <option value="vía nasal">vía nasal</option>
+        <option value="por inhalación">por inhalación</option>
+        <option value="por nebulización">por nebulización</option>
+        <option value="uso cutáneo">uso cutáneo</option>
+        <option value="vía sublingual">vía sublingual</option>
+        <option value="vía bucal">vía bucal</option>
+        <option value="tópico">tópico</option>
+        <option value="sistémico">sistémico</option>
+        <option value="transdérmico">transdérmico</option>
+        
+        
+        <option value="vía intratecal">vía intratecal</option>
+        <option value="vía subcutánea">vía subcutánea</option>
+        <option value="Otra">Otra</option>
+      </select>
+    </div> 
+
+
+
+    <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Precauciones</label>
+    <textarea class="form-control" placeholder="precauciones e informacion que usted crea nesecaria" name="precauciones" id="precauciones" rows="2"></textarea>
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Reacciones adversas</label>
+    <textarea class="form-control" placeholder="Ingrese Reacciones adversas" name="reacciones" id="reacciones" rows="2"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Interacciones</label>
+    <textarea class="form-control" placeholder="Ingrese interacciones de los medicamentos" name="interacciones" id="interacciones" rows="2"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Imagen del farmaco</label>
+    <input class="form-control"  name="user_image" id="user_image" type="file">
+  </div>
+
+  
+
+  
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" name="Guardar" class="btn btn-info">
+        <span class="fa fa-plus"></span> Agregar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para actualizar farmacos -->
+<!-- Button trigger modal -->
+
+ 
+<!-- Modal -->
+<div class="modal fade " id="modalactualizarfarmacos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Actualizar información de los Farmacos</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formeditarfarmaco" method="POST" enctype="multipart/form-data" class="row g-3">
+
+<div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Id Farmaco</label>
+    <input type="text" class="form-control" name="idfarmaco" id="idfarmaco">
+  </div>
+
+<div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Farmacia</label>
+    <select class="form-control" name="farmaciaeditar" id="farmaciaeditar">
+    <?= $this->farmacias ?>  
+    </select>
+
+  </div>
+
+
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre Medico</label>
+    <input type="text" placeholder="Nombre Cientifico" class="form-control" name="nombremedicoA" id="nombremedicoA">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre Comercial</label>
+    <input type="text" placeholder="Nombre Comercial" class="form-control" name="nombrecomercialA" id="nombrecomercialA">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Laboratorio</label>
+    <input type="text" placeholder="Laboratorio de procedencia"class="form-control" name="laboratorioA" id="laboratorioA">
+  </div>
+ 
+
+    <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Estado</label>
+      <select class="custom-select mr-sm-2" name="estadoA" id="estadoA">
+        <option value="" selected>Seleccione Estado</option>
+        <optgroup label="Sólido">
+                <option value="capsula">cápsula</option>
+                <option value="sello">sello</option>
+                <option value="tableta">tableta</option>
+                <option value="pildora">píldora</option>
+                <option value="extracto">extracto</option>
+                <option value="supositorio"> supositorio</option>
+            </optgroup>
+            <optgroup label="semisólido">
+                <option value="pasta">pasta</option>
+                <option value="crema">crema</option>
+                <option value="jalea">jalea</option>
+                <option value="emplasto">emplasto</option>
+            </optgroup>
+
+            <optgroup label="liquido">
+                <option value="solucion">solucion</option>
+                <option value="inyeccion">inyeccion</option>
+                <option value="jarabe">jarabe</option>
+                <option value=" colirio"> colirio</option>
+            </optgroup>
+
+            <optgroup label="gaseso">
+                <option value="oxigeno">oxígeno</option>
+                <option value="oxido nitroso">óxido nitroso</option>
+                <option value="aerosol">aerosol</option>
+            </optgroup>
+
+      </select>
+    </div>
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Peso</label>
+    <input type="text" placeholder="Solo si es solido"class="form-control" name="pesoA" id="pesoA">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Volumen</label>
+    <input type="text" placeholder="si es liquido o gaseoso"class="form-control" name="volumenA" id="volumenA">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Fecha de vencimiento</label>
+    <input type="date" placeholder="Fecha de caducidad"class="form-control" name="vencimientoA" id="vencimientoA">
+  </div>
+
+  <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Tipo</label>
+      <select class="custom-select mr-sm-2" name="tipoA" id="tipoA">
+        <option value="" selected>Seleccione Opcion</option>
+        <option value="Controlado">Controlado</option>
+        <option value="Libre">Libre</option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Cantidad</label>
+    <input type="number" placeholder="N° farmacos"class="form-control" name="cantidadA" id="cantidadA">
+  </div>
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Precio</label>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-solid fa-dollar-sign"></i></span>
+          <input type="number" name="precioA" id="precioA" class="form-control" placeholder="precio venta" >
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="col-md-12">
+      <label class="form-label" for="inlineFormCustomSelect">Modo Aplicación</label>
+      <select class="custom-select mr-sm-2" name="aplicaA" id="aplicaA">
+        <option value="" selected>Seleccione Opcion</option>
+        <option value="vía Oral">vía Oral</option>
+        <option value="vía intravenosa">vía intravenosa</option>
+        <option value="vía intramuscular">vía intramuscular</option>
+        <option value="vía rectal">vía rectal</option>
+        <option value="vía vaginal">vía vaginal</option>
+        <option value="vía ocular">vía ocular</option>
+        <option value="vía ótica">vía ótica</option>
+        <option value="vía nasal">vía nasal</option>
+        <option value="por inhalación">por inhalación</option>
+        <option value="por nebulización">por nebulización</option>
+        <option value="uso cutáneo">uso cutáneo</option>
+        <option value="vía sublingual">vía sublingual</option>
+        <option value="vía bucal">vía bucal</option>
+        <option value="tópico">tópico</option>
+        <option value="sistémico">sistémico</option>
+        <option value="transdérmico">transdérmico</option>
+        
+        
+        <option value="vía intratecal">vía intratecal</option>
+        <option value="vía subcutánea">vía subcutánea</option>
+        <option value="Otra">Otra</option>
+      </select>
+    </div> 
+
+
+
+    <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Precauciones</label>
+    <textarea class="form-control" placeholder="precauciones e informacion que usted crea nesecaria" name="precaucionesA" id="precaucionesA" rows="2"></textarea>
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Reacciones adversas</label>
+    <textarea class="form-control" placeholder="Ingrese Reacciones adversas" name="reaccionesA" id="reaccionesA" rows="2"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Interacciones</label>
+    <textarea class="form-control" placeholder="Ingrese interacciones de los medicamentos" name="interaccionesA" id="interaccionesA" rows="2"></textarea>
+  </div>
+  
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Imagen del farmaco</label>
+    <img name="probando" class="rounded mx-auto d-block" height="200 px" id="probando" src="" alt="">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Actualizar Imagen</label>
+    <input class="form-control"  name="user_imageA" id="user_imageA" type="file">
+  </div>
+
+  
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-warning">
+        <span class="fa fa-refresh"></span> Actualizar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+

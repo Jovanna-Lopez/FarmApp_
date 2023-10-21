@@ -1,0 +1,293 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Registro y listado de farmacias</strong>
+                                    </center>
+
+                                    <button class="btn btn-info float-right" data-bs-toggle="modal" data-bs-target="#modalfarm">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+
+                                    </div>
+<div class="card-body card-block">
+
+
+<table id="table" class="display">
+<thead>
+
+<tr>
+<th>imagen farmacia</th>
+<th>Id</th>
+<th>Nombre Farmacia</th>
+<th>Numero de registro</th>
+<th>Direccion</th>
+<th>Latitud</th>
+<th>Longitud</th>
+<th>Telefono</th>
+<th>Hora Abierto</th>
+<th>Hora Cierre</th>
+<th>Ofrece Delivery</th>
+<th>Id Dueño</th>
+<th>Acción</th>
+
+</tr>
+
+
+</thead>
+
+<tbody>
+
+<?= $this->tabla ?>
+
+
+</tbody>
+
+
+</table>
+
+
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                       
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para la insertar farmacias -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalfarm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Agregar Farmacias</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formagregarfarmacia" method="POST"  enctype="multipart/form-data" class="row g-3">
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Nombre del dueño de la farmacia</label>
+    <select class="form-control" name="duexo" id="duexo">
+    <?= $this->duexo ?>  
+    </select>
+
+  </div>
+
+
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Nombre de la farmacia</label>
+    <input type="text" class="form-control" name="nombre" id="nombre">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Numero de registro</label>
+    <input type="text" class="form-control" name="registro" id="registro">
+  </div>
+ 
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Numero de telefono</label>
+    <input type="text" class="form-control" name="telefono" id="telefono">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de abierto</label>
+    <input type="time" class="form-control" name="abierto" id="abierto">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de cierre</label>
+    <input type="time" class="form-control" name="cierre" id="cierre">
+  </div>
+  <div class="col-md-12">
+    <label for="inputCity" class="form-label">Dirección</label>
+    <textarea class="form-control" name="direccion" id="direccion" rows="2"></textarea>
+
+  </div>
+
+  <div class="col-6">
+    <label for="inputAddress" class="form-label">Latitud</label>
+    <input type="text" class="form-control" name="latitud" id="latitud" placeholder="">
+  </div>
+  <div class="col-6">
+    <label for="inputAddress2" class="form-label">Longitud</label>
+    <input type="text" class="form-control" name="longitud" id="longitud" placeholder="">
+  </div>
+
+  <div class="col-md-12">
+      <label class="form-label" for="inlineFormCustomSelect">Ofrece Delivery</label>
+      <select class="custom-select mr-sm-2" name="delivery" id="delivery">
+        <option value="" selected>Seleccione Opcion</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">insertar imagen </label>
+    <input class="form-control"  name="farm_image" id="farm_image" type="file">
+  </div>
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-info">
+        <span class="fa fa-plus"></span> Agregar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal para la actualizar farmacias -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalfarmup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Agregar Farmacias</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formeditarfarmacia" method="POST" enctype="multipart/form-data" class="row g-3">
+
+<div class="col-md-12">
+    <label for="inputEmail4" class="form-label">ID Farmacia</label>
+    <input type="text" class="form-control" name="idfarm" id="idfarm">
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Nombre del dueño de la farmacia</label>
+    <select class="form-control" name="duexoup" id="duexoup">
+    <?= $this->duexo ?>  
+    </select>
+  </div>
+
+
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Nombre de la farmacia</label>
+    <input type="text" class="form-control" name="nombreup" id="nombreup">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Numero de registro</label>
+    <input type="text" class="form-control" name= "registroup" id="registroup">
+  </div>
+ 
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Numero de telefono</label>
+    <input type="text" class="form-control" name="telefonoup" id="telefonoup">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de abierto</label>
+    <input type="time" class="form-control" name="abiertoup" id="abiertoup">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de cierre</label>
+    <input type="time" class="form-control" name="cierreup" id="cierreup">
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputCity" class="form-label">Dirección</label>
+    <textarea class="form-control" name="direccionup" id="direccionup" rows="2"></textarea>
+
+  </div>
+
+  <div class="col-6">
+    <label for="inputAddress" class="form-label">Latitud</label>
+    <input type="text" class="form-control"name="latitudup" id="latitudup" placeholder="">
+  </div>
+  <div class="col-6">
+    <label for="inputAddress2" class="form-label">Longitud</label>
+    <input type="text" class="form-control" name="longitudup" id="longitudup" placeholder="">
+  </div>
+
+  <div class="col-md-12">
+      <label class="form-label" for="inlineFormCustomSelect">Ofrece Delivery</label>
+      <select class="custom-select mr-sm-2" name="deliveryu" id="deliveryu">
+        <option value="" selected>Seleccione Opcion</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Imagen de la farmacia</label>
+    <img name="probando" class="rounded mx-auto d-block" height="200 px" id="probando" src="" alt="">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Actualizar Imagen</label>
+    <input class="form-control"  name="farm_imageA" id="farm_imageA" type="file">
+  </div>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-warning">
+        <span class="fa fa-refresh"></span> Actualizar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+

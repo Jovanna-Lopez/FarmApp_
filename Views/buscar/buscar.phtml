@@ -1,0 +1,390 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Buscar Medicamentos</strong>
+                                    </center>
+
+                                  
+
+                                    </div>
+<div class="card-body card-block">
+
+<form method="POST">
+  <div class="form-group">
+    <label for="buscar">Ingrese medicamento que desea buscar</label>
+    <input type="text" class="form-control" id="buscar" placeholder="Ingrese nombre del farmaco">
+
+
+
+
+
+    
+  </div>
+  
+</form>
+<div class="filter-group my-2 p-2 bg-light border-radius border">
+    <h2><strong>Filtros de busqueda</strong></h2>
+    <form id="filtros">
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Laboratorio</label>
+      <select id="laboratorio" class="form-control">
+      <?= $this->laboratorio ?>  
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Estado</label>
+      <select id="estados" class="form-control">
+      <?= $this->estado ?> 
+      </select>
+    </div>
+
+
+
+    </div>
+  
+
+
+
+
+<div class="d-flex" data-filterregion="actions">
+        &nbsp;
+       
+        <button type="button" id="limpiar" class="btn btn-secondary ml-auto mr-2">Limpiar filtros</button>
+        <button type="submit" class="btn btn-primary">Aplicar filtros</button>
+        </form>
+    </div>
+</div>
+
+<hr>
+
+<table id="table" class="display">
+<thead>
+
+<tr>
+<th>Imagen</th>    
+<th>Nombre Farmaco</th>
+<th>Laboratorio</th>
+<th>Precio</th>
+<th>Nombre Farmacia</th>
+<th>Modo Aplicación</th>
+
+<th>Acción</th> 
+
+</tr>
+
+
+</thead>
+
+<tbody>
+
+
+
+
+</tbody>
+
+
+</table>
+
+
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                       
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+<script>
+
+
+$("#buscar").on("keyup",function(){
+    var bus=$("#buscar").val();
+if(bus.length>=2){
+    console.log(bus);
+$.ajax({
+url:"buscar/busqueda/",
+type:'POST',
+data:{'bus':bus},
+success:function(resultado){
+
+$("#table").DataTable().destroy();
+$("#table tbody").html(resultado);
+      $('#table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        responsive: true,rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        "language":{
+            "sSearch":"Buscar",
+            "lengthMenu":"Mostrar _MENU_ registros",
+            "infoEmpty":"Mostrando registros del 0 al 0 de un total de 0 registros",
+            "zeroRecords":"No se encuentran resultados",
+            "info":"Mostrando registros del _START_ al _END_ de un _TOTAL_ de registros",
+            "oPaginate":{
+                "sNext":"Siguiente",
+                "sPrevious":"Anterior"
+            }        
+        }
+        
+        }); 
+
+
+}  
+});
+}
+else if(bus.length==0){
+    $("#table").DataTable().destroy();
+    $("#table tbody").empty();
+      $('#table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        responsive: true,rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        "language":{
+            "sSearch":"Buscar",
+            "lengthMenu":"Mostrar _MENU_ registros",
+            "infoEmpty":"Mostrando registros del 0 al 0 de un total de 0 registros",
+            "zeroRecords":"No se encuentran resultados",
+            "info":"Mostrando registros del _START_ al _END_ de un _TOTAL_ de registros",
+            "oPaginate":{
+                "sNext":"Siguiente",
+                "sPrevious":"Anterior"
+            }        
+        }
+        
+        }); 
+}
+
+
+
+
+
+    
+    });
+
+    </script>
+
+    <!-- Modal -->
+<div class="modal fade " id="modalinfobus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Información del Farmacos</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form name="comprabus" id="comprabus" method="POST" enctype="multipart/form-data" class="row g-3">
+ 
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Farmacia vende</label>
+    <input type="text" class="form-control" disabled name="farver" id="farver">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nombre Farmaco</label>
+    <input type="text" class="form-control" disabled name="nombrecomerver" id="nombrecomerver">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Imagen del farmaco</label>
+    <img name="imgfarmacover" class="img-fluid rounded mx-auto d-block" height="200 px" id="imgfarmacover" src="" alt="">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Imagen de la farmacia</label>
+    <img name="imgfarmaciaver" class="img-fluid rounded mx-auto d-block" height="200 px" id="imgfarmaciaver" src="" alt="">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Fecha de vencimiento</label>
+    <input type="date" class="form-control" disabled name="vencimientover" id="vencimientover">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Laboratorio</label>
+    <input type="text" class="form-control" disabled name="laboratoriover" id="laboratoriover">
+  </div>
+ 
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Precio</label>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-solid fa-dollar-sign"></i></span>
+          <input type="text" disabled name="preciover" id="preciover" class="form-control" >
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Estado</label>
+      <input type="text" disabled name="estadover" id="estadover" class="form-control" >
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="inlineFormCustomSelect">Tipo de venta</label>
+      <input type="text" disabled name="tipover" id="tipover" class="form-control">
+    </div>
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Ofrece Delivery</label>
+    <input disabled type="text" class="form-control" name="deliveryver" id="deliveryver">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Tipo de aplicación</label>
+    <input disabled type="text" class="form-control" name="apliver" id="apliver">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">N° de Telefono</label>
+    <input disabled type="text" class="form-control" name="numerover" id="numerover">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de abierto</label>
+    <input disabled type="time" class="form-control" id="abiertover">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora de cierre</label>
+    <input type="time" disabled class="form-control" id="cierrever">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Precauciones</label>
+    <textarea disabled class="form-control" name="precaucionesver" id="precaucionesver" rows="2"></textarea>
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Reacciones adversas</label>
+    <textarea disabled class="form-control" name="reaccionesver" id="reaccionesver" rows="2"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Interacciones</label>
+    <textarea disabled class="form-control" name="interaccionesver" id="interaccionesver" rows="2"></textarea>
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Dirección de la farmacia</label>
+    <textarea disabled class="form-control" name="direccionver" id="direccionver" rows="2"></textarea>
+  </div>
+
+ 
+
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Peso</label>
+    <input type="text" disabled class="form-control" name="pesover" id="pesover">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Volumen</label>
+    <input type="text" disabled class="form-control" name="volumenver" id="volumenver">
+  </div>
+<hr>
+  <p class="divider-text"><span class="bg-light">Generar Solicitud de envio</span></p>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Nombre y Apellido</label>
+    <input class="form-control"  name="nombrecompra" id="nombrecompra" type="text">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Numero de telefono</label>
+    <input class="form-control"  name="numerocompra" id="numerocompra" type="number">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Cantidad</label>
+    <input class="form-control"  name="cantidadcompra" id="cantidadcompra" type="number">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Costo Total</label>
+    <input class="form-control"  name="costo" id="costo" type="text">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Dirección entrega</label>
+    <textarea class="form-control" name="direccioncompra" id="direccioncompra" rows="2"></textarea>
+  </div>
+
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Agregar Receta</label>
+    <input class="form-control"  name="receta" id="receta" type="file">
+  </div>
+
+  <div id="divfarmaco" class="col-md-6">
+    <label for="inputPassword4" class="form-label">Id Farmaco</label>
+    <input type="text"  class="form-control" name="idfarmaco" id="idfarmaco">
+  </div>
+
+
+
+  <a href="" id="enlace" target="_blank">Enlace en Nueva Pestaña</a>
+
+
+  
+
+
+
+   
+  
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>  
+        <button type="submit" class="btn btn-success">
+        <span class="fa fa-whatsapp"></span> Solicitar Farmaco</button> 
+    </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

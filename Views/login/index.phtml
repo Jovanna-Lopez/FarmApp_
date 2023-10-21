@@ -1,0 +1,73 @@
+<!-- <div class="container">
+<div class="row">
+<form action="" method="post">
+<input type="hidden" name="validar" value='1'>
+<div class="group-form">
+<label for="user">Usuario</label>
+<input class="form-control" type="text" name="user" id="user">
+</div>
+<div class="group-form">
+<label for="pass">Clave</label>
+<input class="form-control" type="password" name="pass" id="pass">
+</div>
+
+<input type="submit" value="Entar" class="btn btn-primary btn-block">
+
+</form>
+</div>
+</div>
+
+-->
+
+<div class="container">
+<div id="login-row" class="row justify-content-center align-items-center">
+
+<aside class="col-sm-4">
+<div class="card"> 
+<article class="card-body">
+<h1 class="h4 text-gray-900 mb-4 text-center">Bienvenido de Nuevo a FarmApp!</h1>
+<center>
+<img src="<?=PLANTILLA?>assets/img/logo_FarmApp.jpg" class="img-fluid" heigth="80 px" alt="main_logo">
+</center>	
+<hr>
+	<div class="alert alert-success" role="alert">
+ <center>	Sistema de Registo y venta de Farmacos</center>
+</div>
+
+
+	<form action="" method="post">
+<?php
+if(isset($this->mensaje))
+    echo $this->mensaje;
+?>
+<input type="hidden" name="validar" value='1'>
+	<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+		<input class="form-control" placeholder="Usuario" type="text" name="user" id="user">
+	</div> <!-- input-group.// -->
+	</div> <!-- form-group// -->
+	<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		 </div>
+	    <input class="form-control" placeholder="******" type="password" name="pass" id="pass">
+	</div> <!-- input-group.// -->
+	</div> <!-- form-group// -->
+	<div class="form-group">
+	<button type="submit" class="btn btn-primary btn-user btn-block"> Login  </button>
+	</div> <!-- form-group// -->
+	
+	</form>
+</article>
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+
+    </div>
+</div>
+
+

@@ -1,0 +1,236 @@
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                                
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                        <strong>Eventos disponibles</strong>
+                                    </center>
+
+                                    <button class="btn btn-info float-right" data-bs-toggle="modal" data-bs-target="#modalevent">
+                        <span class="fa fa-plus"></span>
+                Agregar nuevo 
+				
+			</button>
+
+                                    </div>
+<div class="card-body card-block">
+
+
+<table id="table" class="display">
+<thead>
+
+<tr>
+<th>Invitado</th>   
+<th>Id </th>
+<th>Actividad</th>
+<th>Direccion</th>
+<th>Fecha</th>
+<th>Hora</th>
+<th>Encargado</th>
+<th>Id farmacia</th>
+<th>Acción</th>
+
+</tr>
+
+
+</thead>
+
+<tbody>
+
+    <?= $this->tabla ?>
+
+
+</tbody>
+
+
+</table>
+
+
+
+                                    
+</div>
+
+
+                                    
+
+
+
+
+                                    <div class="card-footer">
+                                       
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            
+                        </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal para la insertar farmacias -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalevent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Agregar Evento</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formagregarevento" method="POST" enctype="multipart/form-data" class="row g-3">
+
+<div class="col-md-12">
+      <label for="inputEmail4" class="form-label">Farmacia</label>
+      <select class="form-control" name="farmacia" id="farmacia">
+      <?= $this->farmacias ?>  
+      </select>
+
+  </div>
+
+
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Actividad</label>
+    <textarea placeholder="Actividad y/o Servicios"class="form-control" name="actividad" id="actividad" rows="2"></textarea>
+  </div>
+  <div class="col-md-12">
+    <label for="inputCity" class="form-label">Dirección</label>
+    <textarea placeholder="Direccion del evento "class="form-control" name="direccionevent" id="direccionevent" rows="2"></textarea>
+</div>
+ 
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Fecha </label>
+    <input type="date" placeholder="Fecha del evento "class="form-control" name="fecha" id="fecha">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora</label>
+    <input type="time" class="form-control" name="hora" id="hora">
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Encargado</label>
+    <input type="text" class="form-control" name="encargado" id="encargado" >
+  </div>
+
+    <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Foto del encargado del evento</label>
+    <input class="form-control"  name="image_invitado" id="image_invitado" type="file">
+  </div>
+
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-info">
+        <span class="fa fa-plus"></span> Agregar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal para la actualizar farmacias -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade"data-bs-backdrop="static" id="modaleventA"  data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #17a2B8">
+        <h5 class="modal-title" style="color:white;" id="exampleModalLabel">Actualizar Evento</h5>
+        <button type="button" style="color:white;" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form id="formaactualizarevento" method="POST" enctype="multipart/form-data" class="row g-3">
+
+<div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Id Evento</label>
+    <input type="text" class="form-control" disabled name="idevento" id="idevento">
+</div>
+
+
+<div class="col-md-12">
+      <label for="inputEmail4" class="form-label">Farmacia</label>
+      <select class="form-control" name="farmaciaeditar" id="farmaciaeditar">
+      <?= $this->farmacias ?>  
+      </select>
+
+  </div>
+
+
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Actividad</label>
+    <textarea placeholder="Actividad y/o Servicios"class="form-control" name="actividadA"id="actividadA" rows="2"></textarea>
+  </div>
+  <div class="col-md-12">
+    <label for="inputCity" class="form-label">Dirección</label>
+    <textarea placeholder="Direccion del evento "class="form-control" name="direccioneventA"id="direccioneventA" rows="2"></textarea>
+</div>
+ 
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Fecha </label>
+    <input type="date" placeholder="Fecha del evento "class="form-control" name="fechaA" id="fechaA">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Hora</label>
+    <input type="time" class="form-control" name="horaA"id="horaA">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Encargado</label>
+    <input type="text" class="form-control" name="encargadoA "id="encargadoA" >
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Imagen del Encargado</label>
+    <img name="probando" class="rounded mx-auto d-block" height="200 px" id="probando" src="" alt="">
+  </div>
+
+  <div class="col-md-12">
+    <label for="inputPassword4" class="form-label">Foto del encargado del evento</label>
+    <input class="form-control"  name="image_invitadoA" id="image_invitadoA" type="file">
+  </div>
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><span class="fa fa-close"></span> Cancelar</button>
+        <button type="submit" class="btn btn-warning">
+        <span class="fa fa-refresh"></span> Actualizar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
